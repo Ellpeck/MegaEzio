@@ -17,7 +17,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private float inputHor;
     private bool jump;
-    private bool punch;
 
     private Vector2 currentVelocity;
     private bool facingLeft;
@@ -32,8 +31,6 @@ public class PlayerMovement : MonoBehaviour {
         this.inputHor = Input.GetAxisRaw("Horizontal");
         if (Input.GetButtonDown("Jump"))
             this.jump = true;
-        if (Input.GetButtonDown("Fire1"))
-            this.punch = true;
     }
 
     private void FixedUpdate() {
@@ -62,21 +59,10 @@ public class PlayerMovement : MonoBehaviour {
             this.transform.Rotate(0, 180, 0);
         }
 
-        if (!this.jumping && this.punch) {
-            var hit = Physics2D.Raycast(this.punchPoint.position, this.punchPoint.right, 0.25F);
-            if (hit) {
-                var attackable = hit.transform.GetComponent<IAttackable>();
-                if (attackable != null) 
-                    attackable.OnAttack(this.gameObject);
-            }
-
-            this.animator.SetTrigger(AnimatorPunch);
-        }
         this.animator.SetFloat(AnimatorSpeed, Math.Abs(goalSpeed));
         this.animator.SetBool(AnimatorJumping, this.jumping);
-
+        
         this.jump = false;
-        this.punch = false;
     }
 
 }
