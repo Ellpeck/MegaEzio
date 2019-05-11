@@ -5,12 +5,10 @@ public class PlayerMovement : MonoBehaviour {
 
     private static readonly int AnimatorSpeed = Animator.StringToHash("Speed");
     private static readonly int AnimatorJumping = Animator.StringToHash("Jumping");
-    private static readonly int AnimatorPunch = Animator.StringToHash("Punch");
 
     public float moveSpeed;
     public float jumpForce;
     public Transform groundCheck;
-    public Transform punchPoint;
 
     private Animator animator;
     private Rigidbody2D body;
@@ -37,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
         var colliding = false;
         var colliders = Physics2D.OverlapCircleAll(this.groundCheck.position, 0.1F);
         foreach (var other in colliders) {
-            if (other.gameObject != this.gameObject) {
+            if (other.gameObject != this.gameObject && !other.isTrigger) {
                 colliding = true;
                 break;
             }
@@ -61,7 +59,7 @@ public class PlayerMovement : MonoBehaviour {
 
         this.animator.SetFloat(AnimatorSpeed, Math.Abs(goalSpeed));
         this.animator.SetBool(AnimatorJumping, this.jumping);
-        
+
         this.jump = false;
     }
 
