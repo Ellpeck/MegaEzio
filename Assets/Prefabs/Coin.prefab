@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1182011867115608812}
   - component: {fileID: 1182011867115608813}
   - component: {fileID: 1182011867115608809}
-  - component: {fileID: 1182011867115608815}
   - component: {fileID: 4869625142889106268}
   m_Layer: 9
   m_Name: Coin
@@ -29,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1182011867115608802}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1191866752020915626}
   m_Father: {fileID: 0}
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8003260396191338441, guid: 05d0570d246854a4f8acf51ed401e6d4,
+  m_Sprite: {fileID: -4231952906909274518, guid: 7f0ba70a740b1234ebaf3d794a110c65,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -97,7 +96,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 3
+  m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 3
   m_Material: {fileID: 0}
@@ -105,25 +104,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &1182011867115608815
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1182011867115608802}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cd4f451eed788c442b9e78b595f58222, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!70 &4869625142889106268
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -137,8 +117,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.029636502, y: -0.12234843}
-  m_Size: {x: 0.940727, y: 1.2446969}
+  m_Offset: {x: 0.005276203, y: -0.08403361}
+  m_Size: {x: 0.52896655, y: 0.69977283}
   m_Direction: 0
 --- !u!1 &1454145676347969444
 GameObject:
