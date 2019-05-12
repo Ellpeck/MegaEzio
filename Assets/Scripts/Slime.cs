@@ -23,16 +23,21 @@ public class Slime : MonoBehaviour {
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
-        if (other.gameObject.CompareTag("Player")) {
-            var controller = other.gameObject.GetComponent<PlayerController>();
-            if (controller != null)
-                controller.TakeDamage(1);
-        }
         foreach (var point in other.contacts) {
             if (this.facingRight ? point.normal.x <= -0.75F : point.normal.x >= 0.75F) {
                 this.TurnAround();
                 break;
             }
+
+            if (point.normal.y <= -0.45F && other.gameObject.CompareTag("Player")) {
+                Destroy(this.gameObject);
+                return;
+            }
+        }
+        if (other.gameObject.CompareTag("Player")) {
+            var controller = other.gameObject.GetComponent<PlayerController>();
+            if (controller != null)
+                controller.TakeDamage(1);
         }
     }
 
