@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     public float moveSpeed;
     public float jumpForce;
     public Transform groundCheck;
+    public LayerMask groundLayer;
 
     private Animator animator;
     private Rigidbody2D body;
@@ -32,16 +33,16 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        var colliding = false;
-        var colliders = Physics2D.OverlapCircleAll(this.groundCheck.position, 0.1F);
+        var onGround = false;
+        var colliders = Physics2D.OverlapCircleAll(this.groundCheck.position, 0.1F, this.groundLayer);
         foreach (var other in colliders) {
             if (other.gameObject != this.gameObject && !other.isTrigger) {
-                colliding = true;
+                onGround = true;
                 break;
             }
         }
 
-        if (colliding) {
+        if (onGround) {
             if (this.jump)
                 this.body.AddForce(new Vector2(0, this.jumpForce));
             this.jumping = this.jump;

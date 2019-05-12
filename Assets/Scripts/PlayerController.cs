@@ -1,12 +1,18 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 
+    public int maxHealth;
     public int coinAmount;
-    public List<Key> keys = new List<Key>();
+    public int health;
+
+    private readonly List<Key> keys = new List<Key>();
+
+    private void Start() {
+        this.health = this.maxHealth;
+    }
 
     public void AddCoins(int amount) {
         this.coinAmount += amount;
@@ -29,6 +35,10 @@ public class PlayerController : MonoBehaviour {
             }
         }
         return false;
+    }
+
+    public void TakeDamage(int amount) {
+        this.health = Math.Max(0, this.health - amount);
     }
 
 }
