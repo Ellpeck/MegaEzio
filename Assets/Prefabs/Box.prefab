@@ -121,3 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn: []
   spawnSpeed: 0
+  destroyEffect: {fileID: 6467850024125222731, guid: 4cbdce379e5415645a5c594eda69a146,
+    type: 3}

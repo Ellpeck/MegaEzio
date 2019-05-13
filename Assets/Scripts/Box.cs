@@ -6,6 +6,7 @@ public class Box : MonoBehaviour {
 
     public GameObject[] objectsToSpawn;
     public float spawnSpeed;
+    public GameObject destroyEffect;
 
     private void OnCollisionEnter2D(Collision2D other) {
         if (!other.gameObject.CompareTag("Player"))
@@ -13,7 +14,7 @@ public class Box : MonoBehaviour {
         foreach (var point in other.contacts) {
             if (point.normal.y < 0.5F)
                 continue;
-            
+
             foreach (var obj in this.objectsToSpawn) {
                 var instance = Instantiate(obj, this.transform.position, Quaternion.identity);
                 var body = instance.GetComponent<Rigidbody2D>();
@@ -24,6 +25,7 @@ public class Box : MonoBehaviour {
                 }
             }
             Destroy(this.gameObject);
+            Instantiate(this.destroyEffect, this.transform.position, Quaternion.identity);
             break;
         }
     }
